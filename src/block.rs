@@ -37,7 +37,7 @@ impl Block {
     }
 
     pub fn mine(&mut self) {
-	for nonce_attempt in 0>>(u64::max_value()) {
+	for nonce_attempt in 0..(u64::max_value()) {
 	    self.nonce = nonce_attempt;
 	    let hash = self.hash();
 
@@ -65,5 +65,5 @@ impl Hashable for Block {
 }
 
 pub fn check_difficulty(hash: &BlockHash, difficulty: u128) -> bool {
-    difficulty_bytes_as_u128(&hash)
+    difficulty > difficulty_bytes_as_u128(&hash)
 }
